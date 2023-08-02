@@ -30,6 +30,15 @@ export const removePasteSchema = yup.object({
   }),
 });
 
+export const fetchThumbnailSchema = yup.object({
+  body: yup.object({
+    gameLink: yup
+      .string()
+      .typeError("Game link must be a string")
+      .required("Game link is required"),
+  }),
+});
+
 export const fetchPastesSchema = yup.object({
   body: yup.object({
     searchValue: yup

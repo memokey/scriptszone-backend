@@ -4,12 +4,14 @@ import {
   fetchPasteController,
   removePasteController,
   fetchPastesController,
+  fetchThumbnailController,
 } from "./controllers";
 
 import {
   newPasteSchema,
   removePasteSchema,
-  fetchPastesSchema
+  fetchPastesSchema,
+  fetchThumbnailSchema
 } from "./schema";
 
 class PasteModule extends RouteModule {
@@ -25,6 +27,12 @@ class PasteModule extends RouteModule {
       "/fetchpastes",
       this.validateSchema(fetchPastesSchema, { includeQuery: true }),
       fetchPastesController
+    );
+
+    this.router.post(
+      "/fetchThumbnail",
+      this.validateSchema(fetchThumbnailSchema, { includeQuery: true }),
+      fetchThumbnailController
     );
   }
   privateRoutes() {
