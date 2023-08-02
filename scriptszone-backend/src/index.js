@@ -108,7 +108,7 @@ class Server {
     this.express.use(helmet());
     this.express.set("trust proxy", 1);
     const corsOptions = {
-      origin: true,
+      origin: "*",
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true, //access-control-allow-credentials:true
       optionSuccessStatus: 200,
