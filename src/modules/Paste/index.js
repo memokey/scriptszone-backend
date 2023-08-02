@@ -3,19 +3,28 @@ import {
   newPasteController,
   fetchPasteController,
   removePasteController,
+  fetchPastesController,
 } from "./controllers";
 
 import {
   newPasteSchema,
-  removePasteSchema
+  removePasteSchema,
+  fetchPastesSchema
 } from "./schema";
 
 class PasteModule extends RouteModule {
   publicRoutes() {
-    // insert a new paste.
-    this.router.post(
-      "/fetchPaste/:id",
+    // fetch a paste.
+    this.router.get(
+      "/fetchpaste/:id",
       fetchPasteController
+    );
+
+    // fetch pastes with search value.
+    this.router.post(
+      "/fetchpastes",
+      this.validateSchema(fetchPastesSchema, { includeQuery: true }),
+      fetchPastesController
     );
   }
   privateRoutes() {

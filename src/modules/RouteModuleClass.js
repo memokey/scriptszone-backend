@@ -1,4 +1,4 @@
-import { validateSchema } from "../middlewares";
+import { authenticate, validateSchema } from "../middlewares";
 import express from "express";
 
 export class RouteModule {
@@ -13,7 +13,7 @@ export class RouteModule {
     });
 
     this.publicRoutes();
-    // this.router.use(authenticate);
+    this.router.use(authenticate);
     this.privateRoutes();
     return this.router;
   }

@@ -1,2 +1,0 @@
-# Scriptszone API
-

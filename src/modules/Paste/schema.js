@@ -29,3 +29,11 @@ export const removePasteSchema = yup.object({
       .required("Paste ID is required"),
   }),
 });
+
+export const fetchPastesSchema = yup.object({
+  body: yup.object({
+    searchValue: yup
+      .string()
+      .typeError("Search value must be a string")
+  }),
+});

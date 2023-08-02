@@ -11,8 +11,17 @@ export const fetchPasteController = async (req, res) => {
     } = req;
 
     const paste = await PasteModel.findById(id);
+
+    let fetchedPaste = {
+      _id: paste._id,
+      title: paste.title,
+      description: paste.description,
+      scripts: paste.scripts,
+      gameLink: paste.gameLink,
+      createdAt: paste.createdAt,
+    };
     
-    return successResponse({ res, response: { paste } });
+    return successResponse({ res, response: { paste: fetchedPaste } });
   } catch (err) {
     return errorResponse({ res, err });
   }

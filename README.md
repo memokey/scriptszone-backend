@@ -1,2 +1,2 @@
-# MindworksAI API
+# Scriptszone API
 

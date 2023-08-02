@@ -7,10 +7,10 @@ import PasteModel from "../model";
 export const newPasteController = async (req, res) => {
   try {
     const {
-      body: { title, scripts, description },
+      body: { title, scripts, description, gameLink },
     } = req;
     const paste = await PasteModel.create({
-      title, scripts, description
+      title, scripts, description, gameLink
     });
 
     paste.save();
