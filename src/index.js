@@ -113,7 +113,7 @@ class Server {
       credentials: true, //access-control-allow-credentials:true
       optionSuccessStatus: 200,
     };
-    this.express.use(cors(corsOptions));
+    this.express.use(cors());
 
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: false }));
