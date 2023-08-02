@@ -108,12 +108,12 @@ class Server {
     this.express.use(helmet());
     this.express.set("trust proxy", 1);
     const corsOptions = {
-      origin: "*",
+      origin: true,
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
       credentials: true, //access-control-allow-credentials:true
       optionSuccessStatus: 200,
     };
-    this.express.use(cors());
+    this.express.use(cors(corsOptions));
 
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: false }));
