@@ -5,6 +5,7 @@ import {
   removePasteController,
   fetchPastesController,
   fetchThumbnailController,
+  countViewsController,
 } from "./controllers";
 
 import {
@@ -22,6 +23,12 @@ class PasteModule extends RouteModule {
       fetchPasteController
     );
 
+    // fetch a paste.
+    this.router.get(
+      "/countViews/:id",
+      countViewsController
+    );
+
     // fetch pastes with search value.
     this.router.post(
       "/fetchpastes",
@@ -34,6 +41,7 @@ class PasteModule extends RouteModule {
       this.validateSchema(fetchThumbnailSchema, { includeQuery: true }),
       fetchThumbnailController
     );
+    
   }
   privateRoutes() {
     // insert a new paste.
@@ -42,6 +50,7 @@ class PasteModule extends RouteModule {
       this.validateSchema(newPasteSchema, { includeQuery: true }),
       newPasteController
     );
+
     this.router.post(
       "/deletepaste",
       this.validateSchema(removePasteSchema, { includeQuery: true }),

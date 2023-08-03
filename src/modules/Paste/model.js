@@ -15,6 +15,10 @@ const pasteSchema = new Schema(
     gameLink: {
       type: String,
     },
+    views: {
+      type: Number,
+      default: 0,
+    }
   },
   {
     autoIndex: true,
