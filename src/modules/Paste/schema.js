@@ -46,3 +46,13 @@ export const fetchPastesSchema = yup.object({
       .typeError("Search value must be a string")
   }),
 });
+
+
+export const MailerliteSchema = yup.object({
+  body: yup.object({
+    email: yup
+      .string()
+      .typeError("Email must be a string")
+      .required("Email is required"),
+  }),
+});

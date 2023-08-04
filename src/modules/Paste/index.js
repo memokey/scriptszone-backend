@@ -6,13 +6,15 @@ import {
   fetchPastesController,
   fetchThumbnailController,
   countViewsController,
+  MailerliteController,
 } from "./controllers";
 
 import {
   newPasteSchema,
   removePasteSchema,
   fetchPastesSchema,
-  fetchThumbnailSchema
+  fetchThumbnailSchema,
+  MailerliteSchema
 } from "./schema";
 
 class PasteModule extends RouteModule {
@@ -40,6 +42,12 @@ class PasteModule extends RouteModule {
       "/fetchThumbnail",
       this.validateSchema(fetchThumbnailSchema, { includeQuery: true }),
       fetchThumbnailController
+    );
+
+    this.router.post(
+      "/mailerlite",
+      this.validateSchema(MailerliteSchema, { includeQuery: true }),
+      MailerliteController
     );
     
   }

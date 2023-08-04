@@ -4,3 +4,4 @@ export * from "./fetchThumbnail";
 export * from "./fetchPastes";
 export * from "./deletePaste";
 export * from "./countViews";
+export * from "./mailerlite";
