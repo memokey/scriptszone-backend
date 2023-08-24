@@ -43,10 +43,26 @@ export const fetchPastesSchema = yup.object({
   body: yup.object({
     searchValue: yup
       .string()
-      .typeError("Search value must be a string")
+      .typeError("Search value must be a string"),
+    firstPageIndex: yup
+      .string()
+      .typeError("First page index must be a string"),
+    lastPageIndex: yup
+      .string()
+      .typeError("Last page index must be a string"),
+      oldSort: yup
+      .boolean()
+      .typeError("Sort Flag index must be a boolean"),
   }),
 });
 
+export const fetchPasteCountSchema = yup.object({
+  body: yup.object({
+    searchValue: yup
+      .string()
+      .typeError("Search value must be a string"),
+  }),
+});
 
 export const MailerliteSchema = yup.object({
   body: yup.object({

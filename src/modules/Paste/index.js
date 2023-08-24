@@ -7,6 +7,7 @@ import {
   fetchThumbnailController,
   countViewsController,
   MailerliteController,
+  fetchPasteCountController,
 } from "./controllers";
 
 import {
@@ -14,7 +15,8 @@ import {
   removePasteSchema,
   fetchPastesSchema,
   fetchThumbnailSchema,
-  MailerliteSchema
+  MailerliteSchema,
+  fetchPasteCountSchema,
 } from "./schema";
 
 class PasteModule extends RouteModule {
@@ -36,6 +38,13 @@ class PasteModule extends RouteModule {
       "/fetchpastes",
       this.validateSchema(fetchPastesSchema, { includeQuery: true }),
       fetchPastesController
+    );
+
+    // fetch pastes with search value.
+    this.router.post(
+      "/fetchpastecount",
+      this.validateSchema(fetchPasteCountSchema, { includeQuery: true }),
+      fetchPasteCountController
     );
 
     this.router.post(
